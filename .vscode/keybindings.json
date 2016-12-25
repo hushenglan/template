@@ -1,6 +1,6 @@
 // 将键绑定放入此文件中以覆盖默认值
 [
-    { "key": "f8",                    "command": "workbench.action.tasks.build" },
-    { "key": "ctrl+d",                "command": "editor.action.deleteLines",
-                                         "when": "editorTextFocus && !editorReadonly" }
+    { "key": "f8",                    "command": "workbench.action.tasks.build" }
+    //{ "key": "ctrl+d",                "command": "editor.action.deleteLines",
+    //                                     "when": "editorTextFocus && !editorReadonly" }
 ]
