@@ -23,8 +23,6 @@ CORE_INCS += -I$(PROJ_DIR)
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/include
 LIBS_INCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs
 LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
-LIBS      += -Wl,-Bdynamic -lpthread -ldl
-LIBS      += -Wl,-Bstatic -lexpat
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
 GTEST_LIBS = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
 
