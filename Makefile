@@ -20,6 +20,7 @@ PROJ_DIR = .
 OBJS_DIR = $(PROJ_DIR)/objs
 
 CORE_INCS += -I$(PROJ_DIR)
+CORE_INCS += -I$(PROJ_DIR)/primer
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/include
 
 LIBS_LOCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs

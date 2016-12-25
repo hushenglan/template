@@ -1,12 +1,25 @@
 #include <iostream>
 #include <boost/lexical_cast.hpp>
 
-int main(int argc, char *args[])
-{
-    using boost::lexical_cast;
-    int a = lexical_cast<int>("123456");
-    double b = lexical_cast<double>("123.456");
+#include "abs.h"
+
+void testBoost() {
+    int a = boost::lexical_cast<int>("123456");
+    double b = boost::lexical_cast<double>("123.456");
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    return 0;
+}
+
+void testAbs() {
+    double dval = -0.88;
+    float fval = -0.7878;
+
+    std::cout << absVal(dval) << std::endl;
+    std::cout << absVal(fval) << std::endl;
+}
+
+int main(int argc, char *args[])
+{
+    testBoost();
+    testAbs();
 }
