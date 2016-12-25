@@ -7,42 +7,43 @@
 
 #------------------------------- DEFINE -------------------------------
 CC = gcc
-CFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_POSIX_C_SOURCE=200112L  -D_FILE_OFFSET_BITS=64 -D_DEBUG
+CFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_POSIX_C_SOURCE=200112L -D_FILE_OFFSET_BITS=64 -D_DEBUG
 
 CXX = g++
 CXXFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_POSIX_C_SOURCE=200112L -D_FILE_OFFSET_BITS=64 -D_DEBUG
 
-AR = ar
+AR      = ar
 ARFLAGS = -rvl
-LINK = $(CXX)
+LINK    = $(CXX)
 
-PROJ_DIR  = .
-OBJ_DIR = $(PROJ_DIR)/objs
+PROJ_DIR = .
+OBJS_DIR = $(PROJ_DIR)/objs
 
 CORE_INCS += -I$(PROJ_DIR)
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/include
-LIBS_INCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs
+
+LIBS_LOCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs
 LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
-GTEST_LIBS = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
+GTEST_LIB  = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
 
-DEMO_OBJS  = $(OBJ_DIR)/demo.o
+DEMO_OBJS  = $(OBJS_DIR)/demo.o
 DEMO_EXE   = $(PROJ_DIR)/demo
 
-GTEST_OBJS = $(OBJ_DIR)/gtest_demo.o
+GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o
 GTEST_EXE  = $(PROJ_DIR)/gtest_demo
 
 
 
 #------------------------------- ALL -------------------------------
-all: makedir demo
+all:  clean makedir demo
 
-test:makedir gtest
+test: clean makedir gtest
 
 
 
 #------------------------------- OBJS -------------------------------
-$(OBJ_DIR)/demo.o:$(PROJ_DIR)/demo.cpp
+$(OBJS_DIR)/demo.o:$(PROJ_DIR)/demo.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
@@ -50,23 +51,23 @@ demo: $(DEMO_OBJS)
 	@echo
 	@echo ----------------------------- compile finish, then link -----------------------------
 	@echo
-	$(LINK) -o $(DEMO_EXE) $(DEMO_OBJS) $(LIBS_INCS) $(LIBS)
+	$(LINK) -o $(DEMO_EXE) $(DEMO_OBJS) $(LIBS_LOCS) $(LIBS)
 
 
 gtest: $(GTEST_OBJS)
 	@echo
 	@echo ----------------------------- compile finish, then link -----------------------------
 	@echo
-	$(LINK) -o $(GTEST_EXE) $(GTEST_OBJS) $(LIBS_INCS) $(LIBS) $(GTEST_LIBS)
+	$(LINK) -o $(GTEST_EXE) $(GTEST_OBJS) $(LIBS_LOCS) $(LIBS) $(GTEST_LIB)
 
 
 
 #------------------------------- CLEAN -------------------------------
 clean:
-	rm -fr $(OBJ_DIR) $(DEMO_EXE) $(GTEST_EXE)
+	rm -fr $(OBJS_DIR) $(DEMO_EXE) $(GTEST_EXE)
 
 
 
 #------------------------------- MKDIR -------------------------------
 makedir:
-	mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJS_DIR)
