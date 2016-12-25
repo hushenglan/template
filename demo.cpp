@@ -1,14 +1,5 @@
-#include <iostream>
-#include <boost/lexical_cast.hpp>
-
 #include "abs.h"
-
-void testBoost() {
-    int a = boost::lexical_cast<int>("123456");
-    double b = boost::lexical_cast<double>("123.456");
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-}
+#include "lexical.h"
 
 int main(int argc, char *args[])
 {

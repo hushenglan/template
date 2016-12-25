@@ -37,7 +37,7 @@ LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
 GTEST_LIB  = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
 
-DEMO_OBJS  = $(OBJS_DIR)/demo.o $(PRIMER_OBJS_DIR)/abs.o
+DEMO_OBJS  = $(OBJS_DIR)/demo.o $(PRIMER_OBJS_DIR)/abs.o $(BOOST_OBJS_DIR)/lexical.o
 DEMO_EXE   = $(PROJ_DIR)/demo
 
 GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o
@@ -57,6 +57,9 @@ $(OBJS_DIR)/demo.o:$(PROJ_DIR)/demo.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(PRIMER_OBJS_DIR)/abs.o:$(PRIMER_DIR)/abs.cpp
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+
+$(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
