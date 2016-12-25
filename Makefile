@@ -16,11 +16,20 @@ AR      = ar
 ARFLAGS = -rvl
 LINK    = $(CXX)
 
+PRIMER_MODULE_NAME = primer
+BOOST_MODULE_NAME = boost
+
 PROJ_DIR = .
+PRIMER_DIR = $(PROJ_DIR)/$(PRIMER_MODULE_NAME)
+BOOST_DIR = $(PROJ_DIR)/$(BOOST_MODULE_NAME)
+
 OBJS_DIR = $(PROJ_DIR)/objs
+PRIMER_OBJS_DIR = $(OBJS_DIR)/$(PRIMER_MODULE_NAME)
+BOOST_OBJS_DIR = $(OBJS_DIR)/$(BOOST_MODULE_NAME)
 
 CORE_INCS += -I$(PROJ_DIR)
-CORE_INCS += -I$(PROJ_DIR)/primer
+CORE_INCS += -I$(PRIMER_DIR)
+CORE_INCS += -I$(BOOST_DIR)
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/include
 
 LIBS_LOCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs
@@ -28,7 +37,7 @@ LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
 GTEST_LIB  = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
 
-DEMO_OBJS  = $(OBJS_DIR)/demo.o
+DEMO_OBJS  = $(OBJS_DIR)/demo.o $(PRIMER_OBJS_DIR)/abs.o
 DEMO_EXE   = $(PROJ_DIR)/demo
 
 GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o
@@ -45,6 +54,9 @@ test: clean makedir gtest
 
 #------------------------------- OBJS -------------------------------
 $(OBJS_DIR)/demo.o:$(PROJ_DIR)/demo.cpp
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+
+$(PRIMER_OBJS_DIR)/abs.o:$(PRIMER_DIR)/abs.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
@@ -72,3 +84,5 @@ clean:
 #------------------------------- MKDIR -------------------------------
 makedir:
 	mkdir -p $(OBJS_DIR)
+	mkdir -p $(PRIMER_OBJS_DIR)
+	mkdir -p $(BOOST_OBJS_DIR)
