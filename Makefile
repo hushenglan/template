@@ -37,11 +37,11 @@ LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
 GTEST_LIB  = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
 
-DEMO_OBJS  = $(OBJS_DIR)/demo.o $(PRIMER_OBJS_DIR)/abs.o $(BOOST_OBJS_DIR)/lexical.o
-DEMO_EXE   = $(PROJ_DIR)/demo
+DEMO_OBJS  = $(OBJS_DIR)/demo_main.o $(BOOST_OBJS_DIR)/lexical.o
+DEMO_EXE   = $(PROJ_DIR)/demo_main
 
-GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o
-GTEST_EXE  = $(PROJ_DIR)/gtest_demo
+GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o $(OBJS_DIR)/gtest_main.o
+GTEST_EXE  = $(PROJ_DIR)/gtest_main
 
 
 
@@ -53,13 +53,16 @@ test: clean makedir gtest
 
 
 #------------------------------- OBJS -------------------------------
-$(OBJS_DIR)/demo.o:$(PROJ_DIR)/demo.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/abs.o:$(PRIMER_DIR)/abs.cpp
+$(OBJS_DIR)/demo_main.o:$(PROJ_DIR)/demo_main.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+
+$(OBJS_DIR)/gtest_demo.o:$(PROJ_DIR)/gtest_demo.cpp
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+
+$(OBJS_DIR)/gtest_main.o:$(PROJ_DIR)/gtest_main.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
@@ -89,3 +92,9 @@ makedir:
 	mkdir -p $(OBJS_DIR)
 	mkdir -p $(PRIMER_OBJS_DIR)
 	mkdir -p $(BOOST_OBJS_DIR)
+
+
+
+#------------------------------- UNPACK -------------------------------
+unpack:
+	sh $(PROJ_DIR)/unpack.sh
