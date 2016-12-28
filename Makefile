@@ -7,10 +7,10 @@
 
 #------------------------------- DEFINE -------------------------------
 CC = gcc
-CFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_DEBUG
+CFLAGS = -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
 
 CXX = g++
-CXXFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_DEBUG
+CXXFLAGS = -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
 
 AR      = ar
 ARFLAGS = -rvl
