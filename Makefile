@@ -7,10 +7,10 @@
 
 #------------------------------- DEFINE -------------------------------
 CC = gcc
-CFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_POSIX_C_SOURCE=200112L -D_FILE_OFFSET_BITS=64 -D_DEBUG
+CFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_DEBUG
 
 CXX = g++
-CXXFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_POSIX_C_SOURCE=200112L -D_FILE_OFFSET_BITS=64 -D_DEBUG
+CXXFLAGS = -ggdb -O0 -Wall -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_DEBUG
 
 AR      = ar
 ARFLAGS = -rvl
@@ -30,18 +30,20 @@ BOOST_OBJS_DIR = $(OBJS_DIR)/$(BOOST_MODULE_NAME)
 CORE_INCS += -I$(PROJ_DIR)
 CORE_INCS += -I$(PRIMER_DIR)
 CORE_INCS += -I$(BOOST_DIR)
-CORE_INCS += -I$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/include
+CORE_INCS += -I$(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/include
+CORE_INCS += -I$(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/include/internal
 
-LIBS_LOCS += -L$(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs
+LIBS_LOCS += -L$(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make
 LIBS      += -Wl,-Bstatic -lexpat -lreadline -lncurses
 LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
-GTEST_LIB  = $(PROJ_DIR)/deps/gtest/gtest-1.6.0-rc/gtest-1.6.0/lib/.libs/libgtest.a
+GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gtest.a
+GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gtest_main.a
 
-DEMO_OBJS  = $(OBJS_DIR)/demo_main.o $(BOOST_OBJS_DIR)/lexical.o
-DEMO_EXE   = $(PROJ_DIR)/demo_main
+DEMO_OBJS  = $(OBJS_DIR)/demo_blue.o $(BOOST_OBJS_DIR)/lexical.o
+DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o $(OBJS_DIR)/gtest_main.o
-GTEST_EXE  = $(PROJ_DIR)/gtest_main
+GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o $(OBJS_DIR)/gtest_blue.o
+GTEST_EXE  = $(PROJ_DIR)/gtest_blue
 
 
 
@@ -53,7 +55,7 @@ test: clean makedir gtest
 
 
 #------------------------------- OBJS -------------------------------
-$(OBJS_DIR)/demo_main.o:$(PROJ_DIR)/demo_main.cpp
+$(OBJS_DIR)/demo_blue.o:$(PROJ_DIR)/demo_blue.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
@@ -62,7 +64,7 @@ $(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
 $(OBJS_DIR)/gtest_demo.o:$(PROJ_DIR)/gtest_demo.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
-$(OBJS_DIR)/gtest_main.o:$(PROJ_DIR)/gtest_main.cpp
+$(OBJS_DIR)/gtest_blue.o:$(PROJ_DIR)/gtest_blue.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 

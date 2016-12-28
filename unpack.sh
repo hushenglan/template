@@ -2,6 +2,8 @@
 CURRENT_DIR=$PWD
 
 cd $CURRENT_DIR/deps/gtest
-tar -zxvf ./gtest-1.6.0-rc.tar.gz
+tar -zxvf ./googletest-release-1.8.0.tar.gz
+cd googletest-release-1.8.0/googletest/make
+make gtest.a gtest_main.a
 
 cd $CURRENT_DIR
