@@ -1,4 +1,4 @@
-#include "gtest_demo.h"
+#include "template_test.h"
 
 void TemplateTest::SetUp() {
 }

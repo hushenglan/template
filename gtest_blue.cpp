@@ -1,4 +1,4 @@
-#include "gtest_demo.h"
+#include "template_test.h"
 #include "abs.h"
 
 TEST_F(TemplateTest, TEST_ABS) {

@@ -39,10 +39,10 @@ LIBS      += -Wl,-Bdynamic -lpthread -lbz2 -lz -lrt -lm -lc -ldl
 GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gtest.a
 GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gtest_main.a
 
-DEMO_OBJS  = $(OBJS_DIR)/demo_blue.o $(BOOST_OBJS_DIR)/lexical.o
+DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(OBJS_DIR)/gtest_demo.o $(OBJS_DIR)/gtest_blue.o
+GTEST_OBJS = $(OBJS_DIR)/template_test.o $(OBJS_DIR)/gtest_blue.o
 GTEST_EXE  = $(PROJ_DIR)/gtest_blue
 
 
@@ -61,7 +61,7 @@ $(OBJS_DIR)/demo_blue.o:$(PROJ_DIR)/demo_blue.cpp
 $(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
-$(OBJS_DIR)/gtest_demo.o:$(PROJ_DIR)/gtest_demo.cpp
+$(OBJS_DIR)/template_test.o:$(PROJ_DIR)/template_test.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(OBJS_DIR)/gtest_blue.o:$(PROJ_DIR)/gtest_blue.cpp
