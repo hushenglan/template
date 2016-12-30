@@ -13,6 +13,9 @@ TEST_F(TemplateTest, TEST_MAX_2) {
     EXPECT_EQ(my_max_4(f1, f2), f2);
 }
 
+/*
+ * 显式指定模版函数的类型
+ */
 TEST_F(TemplateTest, TEST_MAX_3) {
     EXPECT_EQ(my_max_4<float>(4, 3.2), 4);
 }
