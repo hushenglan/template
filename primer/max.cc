@@ -19,3 +19,15 @@ TEST_F(TemplateTest, TEST_MAX_2) {
 TEST_F(TemplateTest, TEST_MAX_3) {
     EXPECT_EQ(my_max_4<float>(4, 3.2), 4);
 }
+
+TEST_F(TemplateTest, TEST_MAX_4) {
+    EXPECT_EQ(my_max_5(4, 3.2), 4);
+}
+
+TEST_F(TemplateTest, TEST_MAX_5) {
+    EXPECT_EQ(my_max_5(4, 6.2), 6);
+}
+
+TEST_F(TemplateTest, TEST_MAX_6) {
+    EXPECT_EQ(my_max_5(4, 4.2), 4);
+}

@@ -36,3 +36,11 @@ template <typename T>
 inline const T& my_max_4(const T& a, const T& b) {
     return a < b ? b : a;
 }
+
+
+
+
+template <typename T1, typename T2>
+inline T1 my_max_5(T1 const& a, T2 const& b) {
+    return a < b ? b : a;
+}
