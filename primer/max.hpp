@@ -37,10 +37,26 @@ inline const T& my_max_4(const T& a, const T& b) {
     return a < b ? b : a;
 }
 
+/*
+ * 这里的返回值不能返回引用，是因为参数a和b不是引用，参数传递属于传值，会创建临时变量
+ */
+template <typename T>
+inline T const& my_max_6(T a, T b) {
+    return a < b ? b : a;
+}
 
-
-
+/*
+ * 这里的返回值也不能返回引用，是因为返回的类型不一定是T1，也可能是T2，这样可能会有强制转换的一个过程，这个过程也会产生临时变量
+ */
 template <typename T1, typename T2>
 inline T1 my_max_5(T1 const& a, T2 const& b) {
+    return a < b ? b : a;
+}
+
+/*
+ * 编译时无法根据函数调用推演出RT的类型，所以在使用此函数时需要显式指定RT的类型
+ */
+template <typename RT, typename T1, typename T2>
+inline RT my_max_7(T1 const& a, T2 const& b) {
     return a < b ? b : a;
 }
