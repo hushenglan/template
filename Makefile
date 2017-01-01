@@ -42,7 +42,7 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(PRIMER_OBJS_DIR)/max.o $(PRIMER_OBJS_DIR)/abs.o $(OBJS_DIR)/template_test.o $(OBJS_DIR)/gtest_blue.o
+GTEST_OBJS = $(PRIMER_OBJS_DIR)/max2.o $(PRIMER_OBJS_DIR)/max.o $(PRIMER_OBJS_DIR)/abs.o $(OBJS_DIR)/template_test.o $(OBJS_DIR)/gtest_blue.o
 GTEST_EXE  = $(PROJ_DIR)/gtest_blue
 
 
@@ -71,6 +71,9 @@ $(PRIMER_OBJS_DIR)/abs.o:$(PRIMER_DIR)/abs.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(PRIMER_OBJS_DIR)/max.o:$(PRIMER_DIR)/max.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+
+$(PRIMER_OBJS_DIR)/max2.o:$(PRIMER_DIR)/max2.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
