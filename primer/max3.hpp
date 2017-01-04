@@ -9,7 +9,7 @@ inline T const& max_1(T const& a, T const& b) {
 }
 
 template <typename T>
-inline T *const& max_1(T *const& a, T *const& b) {
+inline T* const& max_1(T* const& a, T* const& b) {
     std::cout << "call my_max_1 T pointer" << std::endl;
     return *a > *b ? a : b;
 }
