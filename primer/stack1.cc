@@ -24,3 +24,29 @@ TEST_F(TemplateTest, TEST_STACK1_2) {
     stack.pop();
     EXPECT_EQ(stack.top(), 4);
 }
+
+TEST_F(TemplateTest, TEST_STACK1_3) {
+    Stack<int> stack_1;
+    stack_1.push(1);
+    stack_1.push(2);
+    stack_1.push(3);
+    stack_1.push(4);
+    stack_1.push(5);
+    EXPECT_EQ(stack_1.top(), 5);
+
+    Stack<int> stack_2(stack_1);
+    EXPECT_EQ(stack_2.top(), 5);
+}
+
+TEST_F(TemplateTest, TEST_STACK1_4) {
+    Stack<int> stack_1;
+    stack_1.push(1);
+    stack_1.push(2);
+    stack_1.push(3);
+    stack_1.push(4);
+    stack_1.push(5);
+    EXPECT_EQ(stack_1.top(), 5);
+
+    Stack<int> stack_2 = stack_1;
+    EXPECT_EQ(stack_2.top(), 5);
+}
