@@ -2,7 +2,7 @@
 #include "stack1.hpp"
 
 TEST_F(TemplateTest, TEST_STACK1_1) {
-    Stack<int> *stack_p = new Stack<int>();
+	IntStack *stack_p = new IntStack();
     stack_p->push(1);
     stack_p->push(2);
     stack_p->push(3);
@@ -14,7 +14,7 @@ TEST_F(TemplateTest, TEST_STACK1_1) {
 }
 
 TEST_F(TemplateTest, TEST_STACK1_2) {
-    Stack<int> stack;
+	IntStack stack;
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -26,7 +26,7 @@ TEST_F(TemplateTest, TEST_STACK1_2) {
 }
 
 TEST_F(TemplateTest, TEST_STACK1_3) {
-    Stack<int> stack_1;
+	IntStack stack_1;
     stack_1.push(1);
     stack_1.push(2);
     stack_1.push(3);
@@ -34,12 +34,12 @@ TEST_F(TemplateTest, TEST_STACK1_3) {
     stack_1.push(5);
     EXPECT_EQ(stack_1.top(), 5);
 
-    Stack<int> stack_2(stack_1);
+    IntStack stack_2(stack_1);
     EXPECT_EQ(stack_2.top(), 5);
 }
 
 TEST_F(TemplateTest, TEST_STACK1_4) {
-    Stack<int> stack_1;
+    IntStack stack_1;
     stack_1.push(1);
     stack_1.push(2);
     stack_1.push(3);
@@ -47,7 +47,7 @@ TEST_F(TemplateTest, TEST_STACK1_4) {
     stack_1.push(5);
     EXPECT_EQ(stack_1.top(), 5);
 
-    Stack<int> stack_2 = stack_1;
+    IntStack stack_2 = stack_1;
     EXPECT_EQ(stack_2.top(), 5);
 }
 

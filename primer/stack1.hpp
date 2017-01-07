@@ -81,3 +81,5 @@ T Stack<T>::top() const {
 
     return elems.back();
 }
+
+typedef Stack<int> IntStack;
