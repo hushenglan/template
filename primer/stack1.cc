@@ -50,3 +50,17 @@ TEST_F(TemplateTest, TEST_STACK1_4) {
     Stack<int> stack_2 = stack_1;
     EXPECT_EQ(stack_2.top(), 5);
 }
+
+TEST_F(TemplateTest, TEST_STACK1_5) {
+    try {
+        Stack<std::string> stack_1;
+        stack_1.push("hello");
+        std::cout << stack_1.top() << std::endl;
+        EXPECT_EQ(stack_1.top(), "hello");
+        stack_1.pop();
+        stack_1.pop();
+    } catch(std::exception const& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+}
