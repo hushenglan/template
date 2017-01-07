@@ -22,6 +22,13 @@ public:
         return *this;
     }
 
+    bool operator<(T const& other_stack) const {
+    	/*
+    	 * 由于这个成员函数没有被调用，所以不会实例化此成员函数
+    	 */
+    	return this->elems.size() < other_stack.elems.size();
+    }
+
     void push(T const&);
     void pop();
     T pop_no_exceptionsafety();
