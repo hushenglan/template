@@ -51,18 +51,23 @@ TEST_F(TemplateTest, TEST_STACK1_4) {
     EXPECT_EQ(stack_2.top(), 5);
 }
 
-TEST_F(TemplateTest, TEST_STACK1_5) {
-    try {
-        Stack<std::string> stack_1;
-        stack_1.push("hello");
-        std::cout << stack_1.top() << std::endl;
-        EXPECT_EQ(stack_1.top(), "hello");
-        stack_1.pop();
-        stack_1.pop();
-    } catch(std::exception const& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-}
+/*
+ * 由于后面会特化Stack<std::string>
+ * 有关T是std::string类型的测试就不能写在这里了，否则根据参数演绎，会根据T是std::string演绎出Stack<std::string>类型
+ * 和stack2.h里面的特化冲突
+ */
+//TEST_F(TemplateTest, TEST_STACK1_5) {
+//    try {
+//        Stack<std::string> stack_1;
+//        stack_1.push("hello");
+//        std::cout << stack_1.top() << std::endl;
+//        EXPECT_EQ(stack_1.top(), "hello");
+//        stack_1.pop();
+//        stack_1.pop();
+//    } catch(std::exception const& e) {
+//        std::cerr << "Exception: " << e.what() << std::endl;
+//    }
+//}
 
 
 

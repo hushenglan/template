@@ -1,6 +1,9 @@
 #include <vector>
 #include <stdexcept>
 
+#ifndef PRIMER_STACK1_H_
+#define PRIMER_STACK1_H_
+
 template<typename T>
 class Stack {
 private:
@@ -83,3 +86,5 @@ T Stack<T>::top() const {
 }
 
 typedef Stack<int> IntStack;
+
+#endif /* PRIMER_STACK1_H_ */
