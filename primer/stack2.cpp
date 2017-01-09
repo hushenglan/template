@@ -17,6 +17,6 @@ TEST_F(TemplateTest, TEST_STACK2_1) {
         stack.pop();
         stack.pop();
     } catch(std::exception const& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 }

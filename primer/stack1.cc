@@ -65,7 +65,7 @@ TEST_F(TemplateTest, TEST_STACK1_4) {
 //        stack_1.pop();
 //        stack_1.pop();
 //    } catch(std::exception const& e) {
-//        std::cerr << "Exception: " << e.what() << std::endl;
+//        std::cout << "Exception: " << e.what() << std::endl;
 //    }
 //}
 

@@ -13,6 +13,10 @@
 #include <string>
 #include <stdexcept>
 
+/*
+ * 这个类是stack1.hpp中的Stack<T>一个特化
+ */
+
 template<>
 class Stack<std::string> {
 
