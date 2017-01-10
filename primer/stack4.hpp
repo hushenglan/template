@@ -11,7 +11,7 @@
 
 #include <stdexcept>
 
-template<typename T, int MAXSIZE>
+template<typename T = std::string, int MAXSIZE = 20>
 class Stack4 {
 private:
 	T elems[MAXSIZE];
