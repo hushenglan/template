@@ -25,10 +25,10 @@ TEST_F(TemplateTest, TEST_ADDVAL_2) {
 	v.push_back(4);
 
 	std::transform(v.begin(), v.end(), v.begin(), addValue<int, 10>);
-    for (auto const &n : v) {
-        std::cout << ' ' << n;
-    }
-    std::cout << std::endl;
+	for (auto const &n : v) {
+		std::cout << ' ' << n;
+	}
+	std::cout << std::endl;
 }
 
 
