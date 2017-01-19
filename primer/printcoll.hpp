@@ -41,5 +41,25 @@ void printBitset(std::bitset<N> const& bs) {
 	std::cout << str << std::endl;
 }
 
+template<typename T>
+class Base {
+public:
+	void exit() {
+		std::cout << "use Base::exit" << std::endl;
+	}
+};
+
+template<typename T>
+class Derived : public Base<T> {
+public:
+	void foo_1() {
+		this->exit();
+	}
+
+	void foo_2() {
+		Base<T>::exit();
+	}
+};
+
 
 #endif /* PRIMER_PRINTCOLL_HPP_ */

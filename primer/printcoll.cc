@@ -32,4 +32,10 @@ TEST_F(TemplateTest, TEST_PRINTCOLL_3) {
 	EXPECT_EQ(bs_1 == bs_2, 1);
 }
 
+TEST_F(TemplateTest, TEST_DERIVED_1) {
+	Derived<int> d;
+	d.foo_1();
+	d.foo_2();
+}
+
 
