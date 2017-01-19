@@ -1,4 +1,4 @@
 deps/gtest/googletest-release-1.8.0
 objs
-demo_blue.exe
-gtest_blue.exe
+demo_blue.exe*
+gtest_blue.exe*
