@@ -1,16 +1,19 @@
 /*
- * stack5decl.cc
+ * stack6decl.cc
  *
- *  Created on: 2017年1月19日
+ *  Created on: 2017年1月21日
  *      Author: blue
  */
 
 #include "template_test.h"
-#include "stack5decl.hpp"
+#include "stack6decl.hpp"
+#include <iostream>
+#include <vector>
 
-TEST_F(TemplateTest, TEST_STACK5DECL_1) {
-	Stack5<int> intStack_1, intStack_2;
-	Stack5<float> floatStack;
+TEST_F(TemplateTest, TEST_STACK6DECL_1) {
+	Stack6<int, std::vector<int>> intStack_1;
+	Stack6<int, std::deque<int>> intStack_2;
+	Stack6<float, std::deque<float>> floatStack;
 
 	intStack_1.push(1);
 	intStack_1.push(2);
@@ -27,7 +30,7 @@ TEST_F(TemplateTest, TEST_STACK5DECL_1) {
 	EXPECT_EQ(intStack_2.top(), 8);
 
 	std::cout << "start copy to float stack" << std::endl;
-	floatStack = intStack_2;
+	floatStack = intStack_1;
 
 	EXPECT_EQ(floatStack.top(), 8.0);
 }

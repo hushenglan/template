@@ -2,7 +2,7 @@
  * stack5decl.hpp
  *
  *  Created on: 2017年1月19日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #ifndef PRIMER_STACK5DECL_HPP_

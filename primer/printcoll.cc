@@ -2,7 +2,7 @@
  * printcoll.cc
  *
  *  Created on: 2017年1月17日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #include "template_test.h"

@@ -2,7 +2,7 @@
  * addval.cpp
  *
  *  Created on: 2017年1月15日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #include "template_test.h"

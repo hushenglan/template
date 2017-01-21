@@ -2,7 +2,7 @@
  * stack3.cc
  *
  *  Created on: 2017年1月9日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #include "template_test.h"

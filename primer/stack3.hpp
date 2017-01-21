@@ -2,7 +2,7 @@
  * stack3.hpp
  *
  *  Created on: 2017年1月9日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #ifndef PRIMER_STACK3_HPP_

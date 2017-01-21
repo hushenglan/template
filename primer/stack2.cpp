@@ -2,7 +2,7 @@
  * stack2.cpp
  *
  *  Created on: 2017年1月7日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #include "template_test.h"

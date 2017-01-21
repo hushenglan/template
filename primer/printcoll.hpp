@@ -2,7 +2,7 @@
  * printcoll.hpp
  *
  *  Created on: 2017年1月17日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #ifndef PRIMER_PRINTCOLL_HPP_

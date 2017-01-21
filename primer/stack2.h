@@ -2,7 +2,7 @@
  * stack2.h
  *
  *  Created on: 2017年1月7日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #ifndef PRIMER_STACK2_H_

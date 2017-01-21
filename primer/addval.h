@@ -2,7 +2,7 @@
  * addval.h
  *
  *  Created on: 2017年1月15日
- *      Author: lenovo
+ *      Author: blue
  */
 
 #ifndef PRIMER_ADDVAL_H_
