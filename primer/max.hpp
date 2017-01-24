@@ -1,3 +1,13 @@
+/*
+ * max.hpp
+ *
+ *  Created on:
+ *      Author: blue
+ */
+
+#ifndef PRIMER_MAX_H_
+#define PRIMER_MAX_H_
+
 template <typename T>
 inline T const my_max(T const a, T const b) {
     return a < b ? b : a;
@@ -60,3 +70,5 @@ template <typename RT, typename T1, typename T2>
 inline RT my_max_7(T1 const& a, T2 const& b) {
     return a < b ? b : a;
 }
+
+#endif

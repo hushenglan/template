@@ -1,8 +1,15 @@
-#include <vector>
-#include <stdexcept>
+/*
+ * stack1.h
+ *
+ *  Created on:
+ *      Author: blue
+ */
 
 #ifndef PRIMER_STACK1_H_
 #define PRIMER_STACK1_H_
+
+#include <vector>
+#include <stdexcept>
 
 template<typename T>
 class Stack {

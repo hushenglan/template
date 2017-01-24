@@ -1,3 +1,13 @@
+/*
+ * max4.hpp
+ *
+ *  Created on:
+ *      Author: blue
+ */
+
+#ifndef PRIMER_MAX4_H_
+#define PRIMER_MAX4_H_
+
 #include <iostream>
 
 template<typename T>
@@ -16,3 +26,5 @@ inline int const& max4(int const& a, int const& b) {
     std::cout << "error: I should not be called" << std::endl;
     return a > b ? a : b;
 }
+
+#endif

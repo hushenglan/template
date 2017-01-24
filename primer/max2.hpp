@@ -1,3 +1,13 @@
+/*
+ * max2.hpp
+ *
+ *  Created on:
+ *      Author: blue
+ */
+
+#ifndef PRIMER_MAX2_H_
+#define PRIMER_MAX2_H_
+
 #include <iostream>
 
 inline int const& max2(int const& a, int const& b) {
@@ -19,3 +29,5 @@ inline T const& max2(T const& a, T const& b, T const& c) {
     std::cout << "-- T3 end --" << std::endl;
     return ret;
 }
+
+#endif
