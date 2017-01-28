@@ -42,7 +42,9 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(PRIMER_OBJS_DIR)/zero_init.o $(PRIMER_OBJS_DIR)/stack7decl.o $(PRIMER_OBJS_DIR)/stack6decl.o \
+GTEST_OBJS = $(PRIMER_OBJS_DIR)/type.o $(PRIMER_OBJS_DIR)/refnonref.o \
+			 $(PRIMER_OBJS_DIR)/max5.o $(PRIMER_OBJS_DIR)/zero_init.o \
+			 $(PRIMER_OBJS_DIR)/stack7decl.o $(PRIMER_OBJS_DIR)/stack6decl.o \
 			 $(PRIMER_OBJS_DIR)/stack5decl.o $(PRIMER_OBJS_DIR)/printcoll.o \
 			 $(PRIMER_OBJS_DIR)/addval.o $(PRIMER_OBJS_DIR)/stack4.o \
 			 $(PRIMER_OBJS_DIR)/stack3.o $(PRIMER_OBJS_DIR)/stack2.o \
@@ -117,6 +119,15 @@ $(PRIMER_OBJS_DIR)/stack7decl.o:$(PRIMER_DIR)/stack7decl.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 	
 $(PRIMER_OBJS_DIR)/zero_init.o:$(PRIMER_DIR)/zero_init.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(PRIMER_OBJS_DIR)/max5.o:$(PRIMER_DIR)/max5.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(PRIMER_OBJS_DIR)/refnonref.o:$(PRIMER_DIR)/refnonref.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(PRIMER_OBJS_DIR)/type.o:$(PRIMER_DIR)/type.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
