@@ -42,7 +42,8 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(PRIMER_OBJS_DIR)/mysecondstack_inst.o $(PRIMER_OBJS_DIR)/mysecondstackmain.o \
+GTEST_OBJS = $(PRIMER_OBJS_DIR)/tracer_test.o $(PRIMER_OBJS_DIR)/tracer.o \
+			 $(PRIMER_OBJS_DIR)/mysecondstack_inst.o $(PRIMER_OBJS_DIR)/mysecondstackmain.o \
 			 $(PRIMER_OBJS_DIR)/myfirstinst.o $(PRIMER_OBJS_DIR)/myfirst.o $(PRIMER_OBJS_DIR)/myfirstmain.o \
 			 $(PRIMER_OBJS_DIR)/type.o $(PRIMER_OBJS_DIR)/refnonref.o \
 			 $(PRIMER_OBJS_DIR)/max5.o $(PRIMER_OBJS_DIR)/zero_init.o \
@@ -145,6 +146,12 @@ $(PRIMER_OBJS_DIR)/mysecondstackmain.o:$(PRIMER_DIR)/mysecondstackmain.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 	
 $(PRIMER_OBJS_DIR)/mysecondstack_inst.o:$(PRIMER_DIR)/mysecondstack_inst.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(PRIMER_OBJS_DIR)/tracer.o:$(PRIMER_DIR)/tracer.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(PRIMER_OBJS_DIR)/tracer_test.o:$(PRIMER_DIR)/tracer_test.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
