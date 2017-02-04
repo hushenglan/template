@@ -29,6 +29,14 @@ private:
 	}
 
 public:
+	static void init() {
+		n_created = 0;
+		n_destroyed = 0;
+		n_max_live = 0;
+		n_assigned = 0;
+		n_compared = 0;
+	}
+
 	static long creations() {
 		return n_created;
 	}
@@ -80,7 +88,7 @@ public:
 
 	SortTracer& operator=(SortTracer const& b) {
 		++n_assigned;
-		std::cerr << "SortTracer assignment #" << n_assigned
+		std::cerr << "SortTracer operator= #" << n_assigned
 				  << " = " << b.generation
 				  << ")\n";
 		value = b.value;
@@ -89,7 +97,7 @@ public:
 
 	friend bool operator<(SortTracer const& a, SortTracer const& b) {
 		++n_compared;
-		std::cerr << "SortTracer comparison #" << n_compared
+		std::cerr << "SortTracer operator< #" << n_compared
 				  << " (generation " << a.generation
 				  << " < " << b.generation
 				  << ")\n";

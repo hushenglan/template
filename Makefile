@@ -54,7 +54,7 @@ GTEST_OBJS = $(PRIMER_OBJS_DIR)/tracer_test.o $(PRIMER_OBJS_DIR)/tracer.o \
 			 $(PRIMER_OBJS_DIR)/stack1.o $(PRIMER_OBJS_DIR)/max4.o \
 			 $(PRIMER_OBJS_DIR)/max3.o $(PRIMER_OBJS_DIR)/max2.o \
 			 $(PRIMER_OBJS_DIR)/max.o $(PRIMER_OBJS_DIR)/abs.o \
-			 $(OBJS_DIR)/template_test.o $(OBJS_DIR)/gtest_blue.o
+			 $(OBJS_DIR)/gtest_blue.o
 GTEST_EXE  = $(PROJ_DIR)/gtest_blue
 
 
@@ -71,9 +71,6 @@ $(OBJS_DIR)/demo_blue.o:$(PROJ_DIR)/demo_blue.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(OBJS_DIR)/template_test.o:$(PROJ_DIR)/template_test.cpp
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(OBJS_DIR)/gtest_blue.o:$(PROJ_DIR)/gtest_blue.cpp
