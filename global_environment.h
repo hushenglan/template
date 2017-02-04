@@ -12,14 +12,13 @@
 
 class GlobalEnvironment: public testing::Environment {
 public:
-	virtual void SetUp() {
-		std::cout << "GlobalEnvironment SetUp" << std::endl;
-	}
+    virtual void SetUp() {
+        std::cout << "GlobalEnvironment SetUp" << std::endl;
+    }
 
-	virtual void TearDown() {
-		std::cout << "GlobalEnvironment TearDown" << std::endl;
-	}
+    virtual void TearDown() {
+        std::cout << "GlobalEnvironment TearDown" << std::endl;
+    }
 };
-
 
 #endif /* GLOBAL_ENVIRONMENT_H_ */

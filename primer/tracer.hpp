@@ -8,7 +8,6 @@
 #ifndef PRIMER_TRACER_HPP_
 #define PRIMER_TRACER_HPP_
 
-
 #include <iostream>
 
 class SortTracer {
@@ -58,49 +57,43 @@ public:
 	}
 
 public:
-	SortTracer(int v = 0) : value(v),
-							generation(1) {
+	SortTracer(int v = 0) :
+			value(v), generation(1) {
 		++n_created;
 		update_max_live();
 		std::cerr << "new SortTracer(value) # " << n_created
-				  << ", created generation " << generation
-				  << " (total: " << n_created - n_destroyed
-				  << ")\n";
+				<< ", created generation " << generation << " (total: "
+				<< n_created - n_destroyed << ")\n";
 	}
 
-	SortTracer(SortTracer const& b) : value(b.value),
-									  generation(b.generation + 1) {
+	SortTracer(SortTracer const& b) :
+			value(b.value), generation(b.generation + 1) {
 		++n_created;
 		update_max_live();
 		std::cerr << "new SortTracer(SortTracer) #" << n_created
-				  << ", copied as generation " << generation
-				  << "(total: " << n_created - n_destroyed
-				  << ")\n";
+				<< ", copied as generation " << generation << "(total: "
+				<< n_created - n_destroyed << ")\n";
 	}
 
 	~SortTracer() {
 		++n_destroyed;
 		update_max_live();
 		std::cerr << "SortTracer generation " << generation
-				  << " destroyed (total: " << n_created - n_destroyed
-				  << ")\n";
+				<< " destroyed (total: " << n_created - n_destroyed << ")\n";
 	}
 
 	SortTracer& operator=(SortTracer const& b) {
 		++n_assigned;
-		std::cerr << "SortTracer operator= #" << n_assigned
-				  << " = " << b.generation
-				  << ")\n";
+		std::cerr << "SortTracer operator= #" << n_assigned << " = "
+				<< b.generation << ")\n";
 		value = b.value;
 		return *this;
 	}
 
 	friend bool operator<(SortTracer const& a, SortTracer const& b) {
 		++n_compared;
-		std::cerr << "SortTracer operator< #" << n_compared
-				  << " (generation " << a.generation
-				  << " < " << b.generation
-				  << ")\n";
+		std::cerr << "SortTracer operator< #" << n_compared << " (generation "
+				<< a.generation << " < " << b.generation << ")\n";
 		return a.value < b.value;
 	}
 
@@ -108,6 +101,5 @@ public:
 		return value;
 	}
 };
-
 
 #endif /* PRIMER_TRACER_HPP_ */

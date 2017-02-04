@@ -10,15 +10,14 @@
 
 #include <gtest/gtest.h>
 
-class TemplateTest : public ::testing::Test
-{
+class TemplateTest: public ::testing::Test {
 protected:
     virtual void SetUp() {
-    	std::cout << "TemplateTest SetUp" << std::endl;
+        std::cout << "TemplateTest SetUp" << std::endl;
     }
 
     virtual void TearDown() {
-    	std::cout << "TemplateTest TearDown" << std::endl;
+        std::cout << "TemplateTest TearDown" << std::endl;
     }
 };
 

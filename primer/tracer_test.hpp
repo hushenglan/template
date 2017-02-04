@@ -11,18 +11,16 @@
 #include <gtest/gtest.h>
 #include "tracer.hpp"
 
-class TracerTest : public ::testing::Test
-{
+class TracerTest: public ::testing::Test {
 protected:
     virtual void SetUp() {
-    	std::cout << "TracerTest SetUp" << std::endl;
-    	SortTracer::init();
+        std::cout << "TracerTest SetUp" << std::endl;
+        SortTracer::init();
     }
 
     virtual void TearDown() {
-    	std::cout << "TracerTest TearDown" << std::endl;
+        std::cout << "TracerTest TearDown" << std::endl;
     }
 };
-
 
 #endif /* PRIMER_TRACER_TEST_HPP_ */
