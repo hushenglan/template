@@ -54,7 +54,7 @@ public:
 							generation(1) {
 		++n_created;
 		update_max_live();
-		std::cerr << "new SortTracer # " << n_created
+		std::cerr << "new SortTracer(value) # " << n_created
 				  << ", created generation " << generation
 				  << " (total: " << n_created - n_destroyed
 				  << ")\n";
@@ -64,7 +64,7 @@ public:
 									  generation(b.generation + 1) {
 		++n_created;
 		update_max_live();
-		std::cerr << "copy SortTracer #" << n_created
+		std::cerr << "new SortTracer(SortTracer) #" << n_created
 				  << ", copied as generation " << generation
 				  << "(total: " << n_created - n_destroyed
 				  << ")\n";

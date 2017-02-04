@@ -9,6 +9,23 @@
 #include "tracer.hpp"
 
 TEST_F(TemplateTest, TEST_TRACER_1) {
+	SortTracer *test = new SortTracer(100);
+	SortTracer *test1 = new SortTracer(*test);
+	SortTracer *test2 = new SortTracer();
+	*test2 = *test1;
+
+	delete test;
+	delete test1;
+	delete test2;
+}
+
+TEST_F(TemplateTest, TEST_TRACER_2) {
+	SortTracer test(200);
+	SortTracer test1(test);
+	SortTracer test2 = test1;
+}
+
+TEST_F(TemplateTest, TEST_TRACER_3) {
 	SortTracer input[] = {7, 3, 5, 6, 4, 2, 0, 1, 9, 8};
 
 	for (int i = 0; i <  10; i++) {
