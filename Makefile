@@ -17,18 +17,22 @@ ARFLAGS = -rvl
 LINK    = $(CXX)
 
 PRIMER_MODULE_NAME = primer
+POLY_MODULE_NAME = poly
 BOOST_MODULE_NAME = boost
 
 PROJ_DIR = .
 PRIMER_DIR = $(PROJ_DIR)/$(PRIMER_MODULE_NAME)
+POLY_DIR = $(PROJ_DIR)/$(POLY_MODULE_NAME)
 BOOST_DIR = $(PROJ_DIR)/$(BOOST_MODULE_NAME)
 
 OBJS_DIR = $(PROJ_DIR)/objs
 PRIMER_OBJS_DIR = $(OBJS_DIR)/$(PRIMER_MODULE_NAME)
+POLY_OBJS_DIR = $(OBJS_DIR)/$(POLY_MODULE_NAME)
 BOOST_OBJS_DIR = $(OBJS_DIR)/$(BOOST_MODULE_NAME)
 
 CORE_INCS += -I$(PROJ_DIR)
 CORE_INCS += -I$(PRIMER_DIR)
+CORE_INCS += -I$(POLY_DIR)
 CORE_INCS += -I$(BOOST_DIR)
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/include
 CORE_INCS += -I$(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/include/internal
@@ -42,7 +46,8 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(PRIMER_OBJS_DIR)/tracer_test.o $(PRIMER_OBJS_DIR)/tracer.o \
+GTEST_OBJS = $(POLY_OBJS_DIR)/dynahier.o $(POLY_OBJS_DIR)/dynahier_test.o \
+			 $(PRIMER_OBJS_DIR)/tracer_test.o $(PRIMER_OBJS_DIR)/tracer.o \
 			 $(PRIMER_OBJS_DIR)/mysecondstack_inst.o $(PRIMER_OBJS_DIR)/mysecondstackmain.o \
 			 $(PRIMER_OBJS_DIR)/myfirstinst.o $(PRIMER_OBJS_DIR)/myfirst.o $(PRIMER_OBJS_DIR)/myfirstmain.o \
 			 $(PRIMER_OBJS_DIR)/type.o $(PRIMER_OBJS_DIR)/refnonref.o \
@@ -150,6 +155,12 @@ $(PRIMER_OBJS_DIR)/tracer.o:$(PRIMER_DIR)/tracer.cc
 	
 $(PRIMER_OBJS_DIR)/tracer_test.o:$(PRIMER_DIR)/tracer_test.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(POLY_OBJS_DIR)/dynahier.o:$(POLY_DIR)/dynahier.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(POLY_OBJS_DIR)/dynahier_test.o:$(POLY_DIR)/dynahier_test.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
 demo: $(DEMO_OBJS)
@@ -177,6 +188,7 @@ clean:
 makedir:
 	mkdir -p $(OBJS_DIR)
 	mkdir -p $(PRIMER_OBJS_DIR)
+	mkdir -p $(POLY_OBJS_DIR)
 	mkdir -p $(BOOST_OBJS_DIR)
 
 
