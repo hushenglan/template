@@ -6,6 +6,7 @@ to build template test:
     make
     make test
 
-run example:
+run test example:
 
-    ./gtest_blue --gtest_filter=TemplateTest.DYNAHIER_*
+    ./gtest_blue --gtest_filter=TemplateTest.TEST_DYNAHIER*
+

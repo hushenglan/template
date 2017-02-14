@@ -13,7 +13,8 @@
 
 class GeoObj {
 public:
-    virtual ~GeoObj();
+    GeoObj() = default;
+    virtual ~GeoObj() = default;
 
     virtual void draw() const = 0;
     virtual Coord center_of_gravity() const = 0;
@@ -22,19 +23,24 @@ public:
 class Circle : public GeoObj {
 public:
     Circle();
-    virtual ~Circle();
+    ~Circle();
 
-    virtual void draw() const;
-    virtual Coord center_of_gravity() const;
+    void draw() const override;
+    Coord center_of_gravity() const override;
+
+    void set_coord(Coord co);
+
+private:
+    Coord co;
 };
 
 class Line : public GeoObj {
 public:
     Line();
-    virtual ~Line();
+    ~Line();
 
-    virtual void draw() const;
-    virtual Coord center_of_gravity() const;
+    void draw() const override;
+    Coord center_of_gravity() const override;
 };
 
 #endif /* POLY_DYNAHIER_HPP_ */
