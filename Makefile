@@ -86,25 +86,25 @@ test: demo
 $(OBJS_DIR)/%.d:$(PROJ_DIR)/%.cc
 	@set -e; rm -f $@; \
 	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 	
 $(BOOST_OBJS_DIR)/%.d:$(BOOST_DIR)/%.cc
 	@set -e; rm -f $@; \
 	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	sed 's,\($*\)\.o[ :]*,$(BOOST_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 	
 $(PRIMER_OBJS_DIR)/%.d:$(PRIMER_DIR)/%.cc
 	@set -e; rm -f $@; \
 	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	sed 's,\($*\)\.o[ :]*,$(PRIMER_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 	
 $(POLY_OBJS_DIR)/%.d:$(POLY_DIR)/%.cc
 	@set -e; rm -f $@; \
 	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	sed 's,\($*\)\.o[ :]*,$(POLY_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 	
 -include $(GTEST_OBJS:.o=.d)
