@@ -1,4 +1,4 @@
-#include "lexical.h"
+#include <lexical.hpp>
 
 void testBoost() {
     int a = boost::lexical_cast<int>("123456");

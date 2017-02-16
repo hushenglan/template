@@ -1,5 +1,6 @@
-#include "template_test.h"
-#include "abs.h"
+#include <abs.hpp>
+
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_ABS_1) {
     EXPECT_EQ(absVal(-1), 1);

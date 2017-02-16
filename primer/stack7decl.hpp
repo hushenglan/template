@@ -9,6 +9,7 @@
 #define PRIMER_STACK7DECL_HPP_
 
 #include <deque>
+#include <stdexcept>
 
 template<typename T, template<typename ELEM, typename ALLOC = std::allocator<ELEM> > class CONT = std::deque >
 class Stack7 {

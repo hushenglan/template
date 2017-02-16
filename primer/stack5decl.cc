@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "stack5decl.hpp"
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_STACK5DECL_1) {
 	Stack5<int> intStack_1, intStack_2;

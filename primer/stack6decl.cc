@@ -5,10 +5,10 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "stack6decl.hpp"
 #include <iostream>
 #include <vector>
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_STACK6DECL_1) {
 	Stack6<int, std::vector<int>> intStack_1;

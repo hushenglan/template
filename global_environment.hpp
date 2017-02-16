@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#ifndef GLOBAL_ENVIRONMENT_H_
-#define GLOBAL_ENVIRONMENT_H_
+#ifndef GLOBAL_ENVIRONMENT_HPP_
+#define GLOBAL_ENVIRONMENT_HPP_
 
 #include <gtest/gtest.h>
 
@@ -21,4 +21,4 @@ public:
     }
 };
 
-#endif /* GLOBAL_ENVIRONMENT_H_ */
+#endif /* GLOBAL_ENVIRONMENT_HPP_ */

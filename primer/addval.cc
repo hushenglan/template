@@ -5,11 +5,12 @@
  *      Author: blue
  */
 
-#include "template_test.h"
-#include "addval.h"
+#include "addval.hpp"
+
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_ADDVAL_1) {
 	double a = addValue<double, 5>(6);

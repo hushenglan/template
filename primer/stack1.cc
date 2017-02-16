@@ -1,4 +1,4 @@
-#include "template_test.h"
+#include <template_test.hpp>
 #include "stack1.hpp"
 
 TEST_F(TemplateTest, TEST_STACK1_1) {

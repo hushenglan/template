@@ -5,7 +5,7 @@
  *      Author: blue
  */
 
-#include "template_test.h"
+#include "../template_test.hpp"
 #include "myfirst.hpp"
 
 TEST_F(TemplateTest, TEST_MYFIRST_1) {

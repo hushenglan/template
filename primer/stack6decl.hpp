@@ -9,6 +9,7 @@
 #define PRIMER_STACK6DECL_HPP_
 
 #include <deque>
+#include <stdexcept>
 
 template<typename T, typename CONT = std::deque<T> >
 class Stack6 {

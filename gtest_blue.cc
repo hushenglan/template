@@ -1,4 +1,4 @@
-#include "global_environment.h"
+#include "global_environment.hpp"
 //#include "template_test.h"
 //#include "primer/tracer_test.hpp"
 

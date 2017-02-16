@@ -9,6 +9,8 @@
 #define PRIMER_STACK5DECL_HPP_
 
 #include <deque>
+#include <stdexcept>
+#include <iostream>
 
 template<typename T>
 class Stack5 {

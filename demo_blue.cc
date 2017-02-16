@@ -1,5 +1,5 @@
-#include "abs.h"
-#include "lexical.h"
+#include <abs.hpp>
+#include <lexical.hpp>
 
 int main(int argc, char *args[])
 {

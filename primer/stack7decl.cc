@@ -5,11 +5,11 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "stack7decl.hpp"
 #include <vector>
 #include <deque>
 #include <stdexcept>
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_STACK7DECL_1) {
 	Stack7<int, std::vector> intStack_1;

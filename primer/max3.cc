@@ -1,4 +1,4 @@
-#include "template_test.h"
+#include <template_test.hpp>
 #include "max3.hpp"
 #include <iostream>
 

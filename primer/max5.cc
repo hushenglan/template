@@ -5,9 +5,9 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "max5.hpp"
 #include <string>
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_MAX5_1) {
     std::string s;

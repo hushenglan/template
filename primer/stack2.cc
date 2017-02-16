@@ -5,8 +5,9 @@
  *      Author: blue
  */
 
-#include "template_test.h"
-#include "stack2.h"
+#include "stack2.hpp"
+
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_STACK2_1) {
     try {

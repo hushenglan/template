@@ -10,6 +10,7 @@
 
 
 #include <stdexcept>
+#include <stdexcept>
 
 template<typename T = std::string, int MAXSIZE = 20>
 class Stack4 {

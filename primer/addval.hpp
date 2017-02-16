@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#ifndef PRIMER_ADDVAL_H_
-#define PRIMER_ADDVAL_H_
+#ifndef PRIMER_ADDVAL_HPP_
+#define PRIMER_ADDVAL_HPP_
 
 
 template<typename T, int VAL>
@@ -15,4 +15,4 @@ T addValue(T const& x) {
 }
 
 
-#endif /* PRIMER_ADDVAL_H_ */
+#endif /* PRIMER_ADDVAL_HPP_ */

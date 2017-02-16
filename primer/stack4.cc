@@ -6,7 +6,7 @@
  */
 
 
-#include "template_test.h"
+#include <template_test.hpp>
 #include "stack4.hpp"
 #include <iostream>
 #include <string>

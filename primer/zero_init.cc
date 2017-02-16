@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "zero_init.hpp"
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_ZERO_INIT_1) {
 	std::cout << "foo_int:" << foo_int() << std::endl;

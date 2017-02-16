@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#ifndef TEMPLATE_TEST_H_
-#define TEMPLATE_TEST_H_
+#ifndef TEMPLATE_TEST_HPP_
+#define TEMPLATE_TEST_HPP_
 
 #include <gtest/gtest.h>
 
@@ -21,4 +21,4 @@ protected:
     }
 };
 
-#endif /* TEMPLATE_TEST_H_ */
+#endif /* TEMPLATE_TEST_HPP_ */

@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
+#include "../template_test.hpp"
 #include "mysecondstackdef.hpp"
-#include "template_test.h"
 
 TEST_F(TemplateTest, TEST_MYSECONDSTACK_1) {
 	MySecondStack<int> intStack;

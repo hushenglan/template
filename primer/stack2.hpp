@@ -5,13 +5,14 @@
  *      Author: blue
  */
 
-#ifndef PRIMER_STACK2_H_
-#define PRIMER_STACK2_H_
+#ifndef PRIMER_STACK2_HPP_
+#define PRIMER_STACK2_HPP_
 
 #include "stack1.hpp"
 #include <deque>
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 /*
  * 这个类是stack1.hpp中的Stack<T>一个特化
@@ -94,4 +95,4 @@ std::string Stack<std::string>::top() const {
 	return elems.back();
 }
 
-#endif /* PRIMER_STACK2_H_ */
+#endif /* PRIMER_STACK2_HPP_ */

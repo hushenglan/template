@@ -64,105 +64,68 @@ GTEST_EXE  = $(PROJ_DIR)/gtest_blue
 
 
 
-#------------------------------- ALL -------------------------------
-all:  clean makedir demo
+#------------------------------- MKDIR -------------------------------
+build_obj_path := $(shell \
+	mkdir -p $(OBJS_DIR) && \
+	mkdir -p $(PRIMER_OBJS_DIR) && \
+	mkdir -p $(POLY_OBJS_DIR) && \
+	mkdir -p $(BOOST_OBJS_DIR))
 
-test: clean makedir gtest
+
+
+#------------------------------- ALL -------------------------------
+.PHONY:all
+all:  demo
+
+.PHONY:test
+test: gtest
+
+
+
+#------------------------------- DEPENDS -------------------------------
+$(OBJS_DIR)/%.d:$(PROJ_DIR)/%.cc
+	@set -e; rm -f $@; \
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+	
+$(BOOST_OBJS_DIR)/%.d:$(BOOST_DIR)/%.cc
+	@set -e; rm -f $@; \
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+	
+$(PRIMER_OBJS_DIR)/%.d:$(PRIMER_DIR)/%.cc
+	@set -e; rm -f $@; \
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+	
+$(POLY_OBJS_DIR)/%.d:$(POLY_DIR)/%.cc
+	@set -e; rm -f $@; \
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+	
+-include $(GTEST_OBJS:.o=.d)
 
 
 
 #------------------------------- OBJS -------------------------------
-$(OBJS_DIR)/demo_blue.o:$(PROJ_DIR)/demo_blue.cpp
+$(OBJS_DIR)/%.o:$(PROJ_DIR)/%.cc
+	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+	
+$(BOOST_OBJS_DIR)/%.o:$(BOOST_DIR)/%.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
-$(BOOST_OBJS_DIR)/lexical.o:$(BOOST_DIR)/lexical.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(OBJS_DIR)/gtest_blue.o:$(PROJ_DIR)/gtest_blue.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/abs.o:$(PRIMER_DIR)/abs.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/max.o:$(PRIMER_DIR)/max.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/max2.o:$(PRIMER_DIR)/max2.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/max3.o:$(PRIMER_DIR)/max3.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/max4.o:$(PRIMER_DIR)/max4.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/stack1.o:$(PRIMER_DIR)/stack1.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/stack2.o:$(PRIMER_DIR)/stack2.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/stack3.o:$(PRIMER_DIR)/stack3.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-
-$(PRIMER_OBJS_DIR)/stack4.o:$(PRIMER_DIR)/stack4.cc
+$(PRIMER_OBJS_DIR)/%.o:$(PRIMER_DIR)/%.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 	
-$(PRIMER_OBJS_DIR)/addval.o:$(PRIMER_DIR)/addval.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/printcoll.o:$(PRIMER_DIR)/printcoll.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/stack5decl.o:$(PRIMER_DIR)/stack5decl.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/stack6decl.o:$(PRIMER_DIR)/stack6decl.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/stack7decl.o:$(PRIMER_DIR)/stack7decl.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/zero_init.o:$(PRIMER_DIR)/zero_init.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/max5.o:$(PRIMER_DIR)/max5.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/refnonref.o:$(PRIMER_DIR)/refnonref.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/type.o:$(PRIMER_DIR)/type.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/myfirst.o:$(PRIMER_DIR)/myfirst.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/myfirstmain.o:$(PRIMER_DIR)/myfirstmain.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/myfirstinst.o:$(PRIMER_DIR)/myfirstinst.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/mysecondstackmain.o:$(PRIMER_DIR)/mysecondstackmain.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/mysecondstack_inst.o:$(PRIMER_DIR)/mysecondstack_inst.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/tracer.o:$(PRIMER_DIR)/tracer.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(PRIMER_OBJS_DIR)/tracer_test.o:$(PRIMER_DIR)/tracer_test.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(POLY_OBJS_DIR)/dynahier.o:$(POLY_DIR)/dynahier.cc
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
-	
-$(POLY_OBJS_DIR)/dynahier_test.o:$(POLY_DIR)/dynahier_test.cc
+$(POLY_OBJS_DIR)/%.o:$(POLY_DIR)/%.cc
 	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
+.PHONY:demo
 demo: $(DEMO_OBJS)
 	@echo
 	@echo ----------------------------- compile finish, then link -----------------------------
@@ -170,6 +133,7 @@ demo: $(DEMO_OBJS)
 	$(LINK) -o $(DEMO_EXE) $(DEMO_OBJS) $(LIBS_LOCS) $(LIBS)
 
 
+.PHONY:gtest
 gtest: $(GTEST_OBJS)
 	@echo
 	@echo ----------------------------- compile finish, then link -----------------------------
@@ -179,20 +143,13 @@ gtest: $(GTEST_OBJS)
 
 
 #------------------------------- CLEAN -------------------------------
+.PHONY:clean
 clean:
 	rm -fr $(OBJS_DIR) $(DEMO_EXE) $(GTEST_EXE)
 
 
 
-#------------------------------- MKDIR -------------------------------
-makedir:
-	mkdir -p $(OBJS_DIR)
-	mkdir -p $(PRIMER_OBJS_DIR)
-	mkdir -p $(POLY_OBJS_DIR)
-	mkdir -p $(BOOST_OBJS_DIR)
-
-
-
 #------------------------------- UNPACK -------------------------------
+.PHONY:unpack
 unpack:
 	sh $(PROJ_DIR)/unpack.sh

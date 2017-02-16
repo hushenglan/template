@@ -5,8 +5,8 @@
  *      Author: blue
  */
 
-#include "template_test.h"
 #include "refnonref.hpp"
+#include "../template_test.hpp"
 
 TEST_F(TemplateTest, TEST_REFNONREF_1) {
     ref("hello");
