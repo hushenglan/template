@@ -44,6 +44,7 @@ TEST_F(TemplateTest, TEST_MAX1_7) {
     double result_2 = my_max_6<double>(8, 5.2);
     std::cout << "result_1: " << result_1 << std::endl <<
                  "result_2: " << result_2 << std::endl;
+
     /*
      * 注意这里是不等于，因为返回的是临时变量的引用
      * 上面的result_1和result_2的值后面也可能发生变化，这样是危险的

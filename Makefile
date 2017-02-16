@@ -75,10 +75,10 @@ build_obj_path := $(shell \
 
 #------------------------------- ALL -------------------------------
 .PHONY:all
-all:  demo
+all:  gtest
 
 .PHONY:test
-test: gtest
+test: demo
 
 
 
