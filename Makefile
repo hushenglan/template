@@ -50,7 +50,8 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(TRAITS_OBJS_DIR)/accum4.o $(TRAITS_OBJS_DIR)/accum3.o $(TRAITS_OBJS_DIR)/accum2.o $(TRAITS_OBJS_DIR)/accum1.o \
+GTEST_OBJS = $(TRAITS_OBJS_DIR)/accum5.o $(TRAITS_OBJS_DIR)/accum4.o \
+		 	 $(TRAITS_OBJS_DIR)/accum3.o $(TRAITS_OBJS_DIR)/accum2.o $(TRAITS_OBJS_DIR)/accum1.o \
 			 $(POLY_OBJS_DIR)/dynahier.o $(POLY_OBJS_DIR)/dynahier_test.o \
 			 $(PRIMER_OBJS_DIR)/tracer_test.o $(PRIMER_OBJS_DIR)/tracer.o \
 			 $(PRIMER_OBJS_DIR)/mysecondstack_inst.o $(PRIMER_OBJS_DIR)/mysecondstackmain.o \
