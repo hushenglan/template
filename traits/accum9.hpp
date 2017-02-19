@@ -1,18 +1,18 @@
 /*
- * accum8.hpp
+ * accum9.hpp
  *
  *  Created on: 2017年2月19日
  *      Author: blue
  */
 
-#ifndef TRAITS_ACCUM8_HPP_
-#define TRAITS_ACCUM8_HPP_
+#ifndef TRAITS_ACCUM9_HPP_
+#define TRAITS_ACCUM9_HPP_
 
 #include "accumtraits4.hpp"
 #include "sumpolicy3.hpp"
 
 template<typename T,
-         template<bool> class Policy = SumPolicy,
+         typename Policy = SumPolicy<>,
          typename Traits = AccumulationTraits<T> >
 class Accum {
 public:
@@ -21,7 +21,7 @@ public:
     static AccT accum(T const* beg, T const* end) {
         AccT total = Traits::zero();
         while (beg != end) {
-            Policy<false>::accumulate(total, *beg);
+            Policy::accumulate(total, *beg);
             ++beg;
         }
 
@@ -30,5 +30,4 @@ public:
 };
 
 
-
-#endif /* TRAITS_ACCUM8_HPP_ */
+#endif /* TRAITS_ACCUM9_HPP_ */
