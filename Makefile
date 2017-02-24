@@ -50,7 +50,8 @@ GTEST_LIB += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gte
 DEMO_OBJS  = $(BOOST_OBJS_DIR)/lexical.o $(OBJS_DIR)/demo_blue.o
 DEMO_EXE   = $(PROJ_DIR)/demo_blue
 
-GTEST_OBJS = $(TRAITS_OBJS_DIR)/apply2.o $(TRAITS_OBJS_DIR)/apply1.o $(TRAITS_OBJS_DIR)/isclasst.o \
+GTEST_OBJS = $(TRAITS_OBJS_DIR)/promote.o $(TRAITS_OBJS_DIR)/apply2.o \
+			 $(TRAITS_OBJS_DIR)/apply1.o $(TRAITS_OBJS_DIR)/isclasst.o \
 			 $(TRAITS_OBJS_DIR)/elementtype.o $(TRAITS_OBJS_DIR)/sizeof.o \
 			 $(TRAITS_OBJS_DIR)/accum0.o $(TRAITS_OBJS_DIR)/accum9.o \
 			 $(TRAITS_OBJS_DIR)/accum8.o $(TRAITS_OBJS_DIR)/accum7.o \
